@@ -1,5 +1,14 @@
 # Frontend
 
+## Be extremely familiar with the following concepts for frontend interview:
+- CSS: Specificity, Box model, Layout, Positioning
+- JavaScript: this keyword, Prototypes, closures, Async-style code, Promises, Timers (setTimeout, setInterval)
+- JavaScript design patterns: Observer pattern, Module pattern
+- HTML: Event delegation (it was useful in almost every interview), DOM traversal, DOM manipulation, Form validation and submission
+- Vanilla JS, or jQuery at the very least. Not all interviews allow you to use React as they want to see mastery of the fundamentals
+
+# Questions:
+
 ## Differentiate between div and span?
 - It is utilized for separating the elements that are block-line, line break before and after it. /	Span is utilized for grouping inline elements in the HTML doc.
 - At times para tag <P> is utilised for inner side of the <div> tag.	/ In a paragraph, <span> tag is utilized to use a CSS style for certain words with the selected font sets.
