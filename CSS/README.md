@@ -4,6 +4,17 @@ Various CSS position properties and its differences.
 ## What is CSS selector specificity and how does it work?
 Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element. 
 
+1. How does CSS specificity work, and what is its purpose in web development?
+2. What is the specificity value of an element with an ID, a class, and a tag selector? How would you calculate it?
+3. Compare the specificity of the following selectors: `#header`, `.navigation`, `header .navigation`, `header.navigation`. Which one would take precedence in the CSS hierarchy?
+4. In case of conflicting styles, how can you increase the specificity of a CSS rule to ensure it overrides other styles?
+5. Explain the difference between `!important` and inline styles in terms of specificity. When should each be used?
+6. If two CSS rules have the same specificity, how does the order of the rules in the stylesheet affect which style gets applied?
+7. How does the universal selector (*) affect specificity? Does it increase or decrease the specificity of a rule?
+8. Describe the process of inheriting styles in CSS. How does it relate to specificity?
+9. What is the "cascade" in CSS, and how does it impact the specificity of styles?
+10. Discuss some best practices for writing maintainable and organized CSS code to avoid specificity conflicts in large projects.
+
 ## How is specificity calculated?
 Specificity is an algorithm that calculates the weight that is applied to a given CSS declaration.
 
