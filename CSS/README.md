@@ -30,6 +30,9 @@ The specificity algorithm is basically a three-column value of three categories 
 
 **No value**: The universal selector (*) and the pseudo-class :where().
 
+ What do you understand about the display property?
+The display property is used to control the visibility of an element. It can be used to hide elements from view, or to make them appear inline or as a block-level element.
+
 ## What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 As a rule, we want an HTML elements to look the same way, independent of which browser is being used to view it. Unfortunately, this is not the case because of the way browsers run.
 
