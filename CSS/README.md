@@ -212,3 +212,156 @@ For the adventurous, they can look into CSS Grid Layout, which uses the shiny ne
 
 ## Have you used or implemented media queries or mobile specific layouts/CSS?
 Eg. 
+
+## Layout
+Normal flow
+The display property
+Flexbox
+Grid
+Floats
+Positioning
+Table layout
+Multiple-column layout
+
+**The display property** — Standard values such as block, inline or inline-block can change how elements behave in normal flow, for example, by making a block-level element behave like an inline-level element (see Types of CSS boxes for more information). We also have entire layout methods that are enabled via specific display values, for example, CSS Grid and Flexbox, which alter how child elements are laid out inside their parents.
+
+The display CSS property sets whether an element is treated as a block or inline box and the layout used for its children, such as flow layout, grid or flex.
+
+Formally, the display property sets an element's inner and outer display types. The outer type sets an element's participation in flow layout; the inner type sets the layout of children.
+
+**Floats** — Applying a float value such as left can cause block-level elements to wrap along one side of an element, like the way images sometimes have text floating around them in magazine layouts.
+
+**The position property** — Allows you to precisely control the placement of boxes inside other boxes. static positioning is the default in normal flow, but you can cause elements to be laid out differently using other values, for example, as fixed to the top of the browser viewport.
+
+**Table layout** — Features designed for styling parts of an HTML table can be used on non-table elements using display: table and associated properties.
+
+**Multi-column layout** — The Multi-column layout properties can cause the content of a block to layout in columns, as you might see in a newspaper.
+
+## Grid
+- Grid is 2 dimension while flex is 1 dimension
+
+```html
+<div class="wrapper">
+<div> A</div>
+<div> B</div>
+</div>
+```
+
+```css
+ .wrapper{
+display: grid;
+grid-template-column: 70% 30%;
+grid-column-gap: 1em;
+grid-row-gap: 1em; // or use grid-gap: 1em;
+}
+
+.wrapper > div{
+background-color: #eee;
+}
+
+.wrapper > div:nth-child(odd){
+background-color: #ddd;
+}
+```
+
+Another example:
+```css
+ .wrapper{
+display: grid;
+grid-template-column: 1fr 1fr 1fr; // or repeat(3, 1fr) or repeat(3, 1fr 2fr)
+grid-gap: 1em;
+grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapper > div{
+background-color: #eee;
+}
+
+.wrapper > div:nth-child(odd){
+background-color: #ddd;
+}
+```
+<img width="836" alt="Screenshot 2023-07-20 at 11 02 56 AM" src="https://github.com/khushij12/Frontend/assets/69646098/b37322bd-3f1b-4f26-ac8e-804ca085dc56">
+
+
+## Which is Better to Use in CSS: px, em, or rem
+px (pixel) is an absolute unit and is not scalable. It always stays the same size, regardless of the screen size or the user's preferences. This makes it a good choice for small, fixed-size elements like borders, but it can cause problems with accessibility and responsiveness.
+
+em (em) is a relative unit that is based on the font size of the parent element. It can be useful for creating scalable typography, but it can also be unpredictable when nested inside multiple elements with varying font sizes.
+
+rem (root em) is a relative unit that is based on the font size of the root element (which is typically the html element). Unlike em, it is not affected by the font size of the parent element. This makes it a good choice for creating scalable typography and responsive layouts.
+
+## Positioning techniques
+**Static positioning** is the default that every element gets. It just means "put the element into its normal position in the document layout flow — nothing special to see here".
+**Relative positioning** allows you to modify an element's position on the page, moving it relative to its position in normal flow, as well as making it overlap other elements on the page.
+**Absolute positioning** moves an element completely out of the page's normal layout flow, like it's sitting on its own separate layer. From there, you can fix it to a position relative to the edges of its closest positioned ancestor (which becomes <html> if no other ancestors are positioned). This is useful for creating complex layout effects, such as tabbed boxes where different content panels sit on top of one another and are shown and hidden as desired, or information panels that sit off-screen by default, but can be made to slide on screen using a control button.
+**Fixed positioning** is very similar to absolute positioning except that it fixes an element relative to the browser viewport, not another element. This is useful for creating effects such as a persistent navigation menu that always stays in the same place on the screen as the rest of the content scrolls.
+**Sticky positioning** is a newer positioning method that makes an element act like position: relative until it hits a defined offset from the viewport, at which point it acts like position: fixed.
+
+## Table layout
+```html
+<form>
+  <p>First of all, tell us your name and age.</p>
+  <div>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" />
+  </div>
+  <div>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" />
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="text" id="age" />
+  </div>
+</form>
+```
+
+```css
+html {
+  font-family: sans-serif;
+}
+
+form {
+  display: table;
+  margin: 0 auto;
+}
+
+form div {
+  display: table-row;
+}
+
+form label,
+form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+form label {
+  width: 200px;
+  padding-right: 5%;
+  text-align: right;
+}
+
+form input {
+  width: 300px;
+}
+
+form p {
+  display: table-caption;
+  caption-side: bottom;
+  width: 300px;
+  color: #999;
+  font-style: italic;
+}
+```
+
+## Multi-column layout
+To turn a block into a multi-column container, we use either the **column-count** property, which tells the browser how many columns we would like to have, or the **column-width** property, which tells the browser to fill the container with as many columns as possible of a specified width.
+
+```css
+.container {
+  column-width: 200px;
+}
+```
+
