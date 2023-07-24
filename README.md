@@ -154,3 +154,92 @@ toExponential()
 ## Which String object functions return the capitalized string while respecting the current locale?
 toLocaleUpperCase()
 
+
+## Reflow v/s Repaint in Rendering
+In rendering, "reflow" and "repaint" are two distinct processes that occur when the browser updates the layout and appearance of elements on a web page. Understanding the difference between these processes is crucial for optimizing the performance of web applications.
+
+**Reflow (Layout)**:
+- Reflow is the process of calculating the position and dimensions of all elements on the page and determining how they interact with each other in the document flow.
+- It occurs when there is a change to the structure, style, or content of the page that affects the layout of elements. For example, resizing the window, changing element dimensions, or modifying the CSS styles.
+- Reflow is a more expensive operation than repaint because it requires recalculating the entire layout of the page, and it can be a performance bottleneck.
+- All affected elements, and their descendants, need to be recalculated, and the browser may need to reflow the entire page.
+
+**Repaint**:
+- Repaint is the process of updating the appearance of elements on the page without changing the layout or position of the elements.
+- It occurs when there is a change to the visual appearance of an element, such as modifying its color, background, opacity, or visibility.
+- Repaint is a less expensive operation compared to reflow because it only updates the visual representation of elements without recalculating their layout.
+- Only the affected pixels need to be repainted, and the browser can optimize this process to minimize the rendering overhead.
+
+**Relationship between Reflow and Repaint**:
+- A reflow almost always triggers a repaint because updating the layout of elements often requires updating their appearance too.
+- However, a repaint does not necessarily trigger a reflow because updating the visual appearance of an element may not affect its layout or the layout of its ancestors or descendants.
+
+**Optimization Tips**:
+- Minimize the number of reflows and repaints by batching DOM updates whenever possible.
+- Use CSS classes for applying multiple style changes instead of directly modifying inline styles.
+- Utilize CSS transforms and opacity changes for animations to take advantage of hardware acceleration and reduce the impact on reflow and repaint.
+- Avoid accessing layout-related properties (e.g., offsetWidth, offsetHeight, getBoundingClientRect()) in a loop as they trigger reflows.
+
+## CSS animation - Why transform attribute is preferred?
+**Hardware Acceleration**: Animations using transform are eligible for hardware acceleration in modern browsers. When a CSS property is hardware-accelerated, the animation is offloaded to the GPU (Graphics Processing Unit) instead of being handled by the CPU (Central Processing Unit). GPU-accelerated animations are smoother and more efficient, resulting in better performance and reduced CPU usage.
+
+**Separation of Concerns**: The transform property is specifically designed for positioning, rotating, scaling, and skewing elements, making it the most appropriate choice for animations involving these transformations. By using transform, you keep the animation concerns separate from layout and flow-related properties, which improves code maintainability.
+
+**Smaller Repaint Region**: Animating properties like width and height can cause a larger repaint region, affecting more elements in the layout. In contrast, transform animations typically have a smaller repaint region, leading to better performance.
+
+**Composite Layering**: Animations using transform create a new composite layer in the browser's rendering engine. This separate layer allows the browser to optimize the animation without affecting other elements on the page, reducing repaint and reflow overhead.
+
+## Bubbling v/s Capturing - Its usage and why does it happen?
+"Bubbling" and "capturing" are two phases of the event propagation model in JavaScript, particularly in the context of the Document Object Model (DOM). Understanding how they work is crucial for handling events efficiently and understanding event flow.
+
+**Event Flow:**
+When an event occurs on an element in the DOM, it goes through two phases before reaching the target element and invoking the event handler:
+
+1. **Capturing Phase:** The event starts from the outermost ancestor element (the root of the DOM) and moves towards the target element. This phase is called capturing.
+
+2. **Target Phase (Target Element):** The event reaches the target element (the element that triggered the event).
+
+3. **Bubbling Phase:** After the target phase, the event starts bubbling up from the target element towards the outermost ancestor element. This phase is called bubbling.
+
+**Usage:**
+By default, most events in JavaScript use the bubbling phase. When an event occurs on a specific element, it first triggers the event handler for that element, then moves to its parent element, and so on, until it reaches the root element (document). This bubbling behavior allows events to be handled at multiple levels of the DOM hierarchy.
+
+```html
+<div id="outer">
+  <div id="inner">
+    Click me!
+  </div>
+</div>
+```
+
+```javascript
+document.getElementById("outer").addEventListener("click", () => {
+  console.log("Outer div clicked!");
+}, false); // Setting the 3rd parameter to 'false' uses bubbling (default)
+
+document.getElementById("inner").addEventListener("click", () => {
+  console.log("Inner div clicked!");
+}, false);
+```
+
+In this example, clicking the "inner" div will trigger both event handlers: first, the "inner div clicked!" message is logged, then the "outer div clicked!" message is logged. This is due to event bubbling.
+
+**Changing Event Flow (Capturing):**
+You can change the event flow to capturing by setting the third parameter of `addEventListener` to `true`. In the capturing phase, the event is triggered on the root element first and then propagates down to the target element.
+
+```javascript
+document.getElementById("outer").addEventListener("click", () => {
+  console.log("Outer div clicked!");
+}, true); // Setting the 3rd parameter to 'true' uses capturing
+
+document.getElementById("inner").addEventListener("click", () => {
+  console.log("Inner div clicked!");
+}, true);
+```
+
+In this modified example, clicking the "inner" div will trigger both event handlers, but in reverse order: first, the "outer div clicked!" message is logged, then the "inner div clicked!" message is logged. This is due to event capturing.
+
+**Why Does it Happen?**
+The event propagation model with capturing and bubbling allows for flexible and extensible event handling in the DOM. By capturing events at the top level and letting them propagate down or bubble up, developers can create more modular and reusable event handling code.
+
+By understanding the event flow and choosing the appropriate phase (capturing or bubbling) in event listeners, you can handle events efficiently and effectively in your web applications.
