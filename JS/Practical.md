@@ -164,3 +164,57 @@ export default async function submitForm(event) {
   }
 }
 ```
+
+## The interviewer asked him to Design Snake and Ledger game including all functions and lifecycle hooks
+Designing the Snake and Ledger game involves creating the game mechanics, UI elements, and handling various game states. Here's an outline of how you can design the game along with the necessary functions and lifecycle hooks:
+
+**Game Mechanics:**
+1. **Snake:** The player controls a snake that moves around the game board. The snake grows in length when it eats food and dies if it collides with its own body or the boundaries.
+2. **Food:** The food appears at random positions on the game board. When the snake's head collides with the food, the snake grows longer, and the player earns points.
+3. **Ledger:** The game keeps track of the player's score, highest score, and current game status (e.g., playing, game over).
+
+**Game Components and Functions:**
+
+1. **GameBoard Component:**
+   - Responsible for rendering the game board and managing game state.
+   - Contains the state variables: `snake`, `food`, `score`, `highestScore`, `isGameOver`, etc.
+   - Lifecycle Hooks:
+     - `componentDidMount`: Initialize the game state and start the game loop.
+     - `componentWillUnmount`: Clean up resources and timers when the component is unmounted.
+
+2. **Snake Component:**
+   - Renders the snake on the game board and handles its movement.
+   - Functions:
+     - `move`: Move the snake in the current direction.
+     - `changeDirection`: Update the direction of the snake based on user input.
+
+3. **Food Component:**
+   - Renders the food on the game board at random positions.
+   - Functions:
+     - `generateRandomPosition`: Generate a random position for the food.
+
+4. **Ledger Component:**
+   - Displays the player's score and highest score.
+   - Functions:
+     - `updateScore`: Update the score when the snake eats food.
+     - `updateHighestScore`: Update the highest score if the current score surpasses it.
+
+**Game Loop:**
+
+- Implement a game loop that repeatedly updates the game state and redraws the game board on the screen at a fixed frame rate.
+
+**Event Handling:**
+
+- Use event listeners to detect user input (e.g., arrow keys) for changing the direction of the snake.
+
+**Collision Detection:**
+
+- Implement collision detection logic to check if the snake collides with the food, boundaries, or itself, leading to game over scenarios.
+
+**Game Over Handling:**
+
+- When the game is over, stop the game loop, update the highest score if needed, and show a game-over message.
+
+**Summary:**
+
+Designing the Snake and Ledger game involves breaking it down into components and functions responsible for different aspects of the game, such as rendering, game mechanics, collision detection, and handling game states. Using React, you can create reusable components and manage game state efficiently. Additionally, you need to implement a game loop to keep the game running and handle user input to control the snake's movement.
