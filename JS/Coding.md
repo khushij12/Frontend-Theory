@@ -8,7 +8,7 @@ Question: What will be the output of the code below?
 console.log(0.1 + 0.2 == 0.3);
 ```
 
-Question: How would you make this work?
+Question: How would you make this work? or Implement currying function - Problem bases on currying
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
