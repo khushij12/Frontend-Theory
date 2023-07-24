@@ -582,8 +582,12 @@ if (true) {
 console.log(blockVar); // Error: blockVar is not defined (not accessible outside the block)
 ```
 
-## Difference between Debounce and Throttle.
+## Difference between Debounce and Throttle. Its polyfill explanation
 Debounce and throttle are two techniques used to manage and control the frequency of function calls, especially when handling events such as scrolling, resizing, or keyboard input. They help improve performance and reduce unnecessary function invocations. Let's explore the differences between debounce and throttle:
+
+Polyfill Explanation:
+
+A polyfill is a piece of code that provides modern functionality on older browsers that lack support for certain features. To create a polyfill for debounce and throttle, we need to implement the functionality using standard JavaScript code.
 
 **Debounce:**
 
