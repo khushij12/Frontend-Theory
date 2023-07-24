@@ -218,3 +218,73 @@ Designing the Snake and Ledger game involves creating the game mechanics, UI ele
 **Summary:**
 
 Designing the Snake and Ledger game involves breaking it down into components and functions responsible for different aspects of the game, such as rendering, game mechanics, collision detection, and handling game states. Using React, you can create reusable components and manage game state efficiently. Additionally, you need to implement a game loop to keep the game running and handle user input to control the snake's movement.
+
+
+1. **What are Promises in JavaScript?**
+   Promises are objects in JavaScript that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They allow us to handle asynchronous code in a more structured and readable way, avoiding deeply nested callbacks.
+
+2. **What are the three states of a Promise?**
+   Promises can be in one of three states:
+   - **Pending**: The initial state when the Promise is created and is waiting for the operation to complete.
+   - **Fulfilled (Resolved)**: The operation completed successfully, and the Promise has a resulting value.
+   - **Rejected**: The operation encountered an error, and the Promise holds the reason for the failure.
+
+3. **How do you create a Promise in JavaScript?**
+   You can create a new Promise using the `Promise` constructor, which takes a single function called the "executor." The executor function has two arguments, `resolve` and `reject`, which are used to fulfill or reject the Promise.
+
+   ```javascript
+   const myPromise = new Promise((resolve, reject) => {
+     // Asynchronous operation
+     if (operationSuccessful) {
+       resolve(result);
+     } else {
+       reject(error);
+     }
+   });
+   ```
+
+4. **What are the two functions used to handle Promise outcomes?**
+   To handle the outcomes of a Promise, you can use the `.then()` method to handle the resolved state and the `.catch()` method to handle the rejected state.
+
+   ```javascript
+   myPromise.then((result) => {
+     // Handle successful operation
+   }).catch((error) => {
+     // Handle error
+   });
+   ```
+
+5. **What is Promise Chaining?**
+   Promise chaining is a technique to perform multiple asynchronous operations in sequence. By returning a Promise from the `.then()` callback, you can chain additional `.then()` or `.catch()` calls to handle the results or errors of subsequent asynchronous tasks.
+
+6. **How do you handle multiple Promises concurrently?**
+   To handle multiple Promises concurrently, you can use `Promise.all([...])` to wait for all Promises to resolve or `Promise.race([...])` to respond as soon as any of the Promises resolve or reject.
+
+7. **How do you handle errors in Promises?**
+   You can use `.catch()` to handle errors in Promises. It allows you to catch and handle any rejected Promise, preventing the error from propagating further down the chain.
+
+8. **What is the difference between Promises and Callbacks?**
+   Promises offer a more structured way to handle asynchronous operations compared to traditional callbacks. Promises allow you to chain asynchronous operations and handle errors more gracefully, leading to more readable and maintainable code.
+
+9. **What is async/await, and how does it relate to Promises?**
+   `async/await` is a syntactic sugar introduced in ES2017 to work with Promises more elegantly. `async` is used before a function declaration to indicate that it returns a Promise, and `await` is used within an `async` function to wait for a Promise to resolve before proceeding further.
+
+   ```javascript
+   async function myAsyncFunction() {
+     try {
+       const result = await myPromise; // Await the resolution of the Promise
+       // Handle the result
+     } catch (error) {
+       // Handle errors
+     }
+   }
+   ```
+
+10. **How do you handle Promise rejections globally?**
+    To handle unhandled Promise rejections globally, you can attach a listener to the `unhandledrejection` event or use `window.addEventListener("unhandledrejection", handler)`.
+
+   ```javascript
+   window.addEventListener("unhandledrejection", (event) => {
+     // Handle unhandled Promise rejections
+   });
+   ```
