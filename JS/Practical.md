@@ -288,3 +288,64 @@ Designing the Snake and Ledger game involves breaking it down into components an
      // Handle unhandled Promise rejections
    });
    ```
+
+## React class-based component life cycle methods
+In React class-based components, there are several lifecycle methods that allow you to hook into various stages of a component's life. These methods are invoked automatically by React. Here are some of the most commonly used lifecycle methods along with a basic example:
+
+```javascript
+import React, { Component } from "react";
+
+class MyClassComponent extends Component {
+  // 1. Constructor: It is called when the component is created.
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+    console.log("Constructor called");
+  }
+
+  // 2. componentDidMount: It is called after the component is rendered to the DOM.
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+
+  // 3. componentDidUpdate: It is called whenever the component updates and after the render method is called.
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component did update");
+  }
+
+  // 4. componentWillUnmount: It is called just before the component is removed from the DOM.
+  componentWillUnmount() {
+    console.log("Component will unmount");
+  }
+
+  // 5. render: It is required and is responsible for returning the JSX that represents the component's UI.
+  render() {
+    console.log("Render method called");
+    return (
+      <div>
+        <h1>Class-based Component</h1>
+        <p>Count: {this.state.count}</p>
+        <button onClick={() => this.setState((prevState) => ({ count: prevState.count + 1 }))}>
+          Increment Count
+        </button>
+      </div>
+    );
+  }
+}
+
+export default MyClassComponent;
+```
+
+In this example, we have a simple class-based component `MyClassComponent`. Here's a brief explanation of each lifecycle method:
+
+1. **Constructor**: The constructor is called when the component is created. It is used to initialize the component's state and bind event handlers. Make sure to call `super(props)` to properly initialize the base class.
+
+2. **componentDidMount**: `componentDidMount` is called after the component is rendered to the DOM. It is commonly used for performing side effects such as fetching data from an API or setting up subscriptions.
+
+3. **componentDidUpdate**: `componentDidUpdate` is called whenever the component updates, which happens whenever the state or props change. It is often used for handling updates that require changes to the component's DOM or state.
+
+4. **componentWillUnmount**: `componentWillUnmount` is called just before the component is removed from the DOM. It is used for cleaning up resources, such as removing event listeners or canceling pending API requests.
+
+5. **render**: The `render` method is required in class-based components. It is responsible for returning the JSX that represents the component's UI. The render method is invoked whenever the component state or props change.
