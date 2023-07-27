@@ -1,3 +1,18 @@
+# Readme Table of Content
+
+1. [Explain the 'this' Keyword in JavaScript](#explain-the-this-keyword-in-javascript)
+2. [Prototype](#prototype)
+3. [Closures](#closures)
+4. [Async-style Code](#async-style-code)
+5. [Promise](#promise)
+6. [Designing the Snake and Its Food (Ball) Game](#designing-the-snake-and-its-food-ball-game)
+7. [Explaining the Process of Fetching Data and Manipulating DOM and CSSOM Trees](#explaining-the-process-of-fetching-data-and-manipulating-dom-and-cssom-trees)
+8. [Side Effects of 'defer' and 'async' Scripts and Their Pros and Cons](#side-effects-of-defer-and-async-scripts-and-their-pros-and-cons)
+9. [Different Types of Scope in JavaScript](#different-types-of-scope-in-javascript)
+10. [Difference between Debounce and Throttle and Polyfill Explanation](#difference-between-debounce-and-throttle-and-polyfill-explanation)
+
+Feel free to click on each section title to jump directly to the corresponding topic!
+
 What is a closure?
 What is the difference between a promise and a callback?
 
@@ -411,7 +426,7 @@ async function foo() {
 ```
 more to be read....
 
-## Question: Design game, Snake and Its Food (Ball) from old Nokia phones, with boundaries,
+## Design game, Snake and Its Food (Ball) from old Nokia phones, with boundaries,
 Designing the "Snake and Its Food" game involves creating a basic game loop, defining the game mechanics, handling user input, and updating the game state accordingly. Below is a simple outline of how you can design the game:
 
 **Game Elements:**
