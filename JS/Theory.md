@@ -1,4 +1,4 @@
-# Readme Table of Content
+# Table of Content
 
 1. [Explain the 'this' Keyword in JavaScript](#explain-the-this-keyword-in-javascript)
 2. [Prototype](#prototype)
