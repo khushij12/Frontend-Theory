@@ -18,7 +18,8 @@
 
 ## Media Query Example of RWD:
 - [Codepen](https://codepen.io/khushij12/pen/abQwVNY)
-
+- For more details, go here.
+  
 ## Orientation: Portrait / Landscape
 - Media queries can also be used to change layout of a page depending on the orientation of the browser.
 ```css
