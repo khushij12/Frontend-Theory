@@ -1,0 +1,1 @@
+Build a Simple Calculator: Create a web page with a simple calculator. It should be able to perform basic operations like addition, subtraction, multiplication, and division.
